@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:text-align="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,10 +24,10 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
+                    <a class="nav-link" th:href="@{/admin}" href="#">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
+                    <a class="nav-link" th:href="@{/logout}" href="#">Logout</a>
                 </li>
 
             </ul>
@@ -37,28 +37,36 @@
 </nav>
 <div class="container-fluid">
 
-    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
+    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Create Product</a>
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">SN</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Category</th>
+            <th scope="col">NO</th>
             <th scope="col">Preview</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
+            <th scope="col">Auction</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Base Price</th>
+            <th scope="col">Settled Price</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
 
         <tr th:each="product, iStat : ${products}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.productImageURL}}"></td>
+            <td th:text="${product.auction.auctionName}">Auction Name</td>
+            <td th:text="${product.title}">Product Title</td>
+            <td th:text="${product.authorName}">Product Author Name</td>
+            <td th:text="${product.basePrice}">Product Base Price</td>
+            <td th:text="${product.settledPrice}">Product Base Price</td>
+            <td th:text="${product.description}">Product Description</td>
 
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.productId})}" class="btn btn-danger">Delete</a></td>
+            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.productId})}" class="btn btn-warning">Update</a></td>
 
         </tr>
         </tbody>

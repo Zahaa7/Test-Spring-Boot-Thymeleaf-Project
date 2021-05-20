@@ -11,9 +11,9 @@ public class ProductDTO {
     private String authorName;
     private String title;
     private String description;
-    private String photo;
+    private String productImageURL;
     private Double basePrice;
     private Double settledPrice;
     private List<Bid> bids;
-    private Integer auction_id;
+    private int auctionId;
 }

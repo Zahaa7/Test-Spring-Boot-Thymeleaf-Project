@@ -29,8 +29,8 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "photo")
-    private String photo;
+    @Column(name = "product_image")
+    private String productImageURL;
 
     @Column(name = "base_price")
     private Double basePrice;

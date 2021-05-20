@@ -1,7 +1,6 @@
 package ro.zah.auction.dto;
 
 import lombok.Data;
-import ro.zah.auction.model.Auction;
 import ro.zah.auction.model.Bid;
 import java.util.List;
 
@@ -16,5 +15,5 @@ public class ProductDTO {
     private Double basePrice;
     private Double settledPrice;
     private List<Bid> bids;
-    private List<Auction> auctions;
+    private Integer auction_id;
 }

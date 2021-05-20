@@ -36,10 +36,7 @@ public class Auction {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime endDate;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "auction_product",
-            joinColumns = {@JoinColumn(name = "auction_id")},
-            inverseJoinColumns = {@JoinColumn(name = "product_id")})
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "auction_id")
     private List<Product> products;
 }

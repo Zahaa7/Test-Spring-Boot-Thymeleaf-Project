@@ -15,5 +15,5 @@ public class ProductDTO {
     private Double basePrice;
     private Double settledPrice;
     private List<Bid> bids;
-    private int auctionId;
+    private long auctionId;
 }

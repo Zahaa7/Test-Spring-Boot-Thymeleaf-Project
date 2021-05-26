@@ -53,13 +53,13 @@ public class AdminController {
     }
 
     @GetMapping("/admin/auctions/delete/{id}")
-    public String deleteAuction(@PathVariable long id) {
+    public String deleteAuction(@PathVariable Long id) {
         auctionService.deleteAuctionById(id);
         return "redirect:/admin/auctions";
     }
 
     @GetMapping("/admin/auctions/update/{id}")
-    public String editAuction(@PathVariable long id, Model model) {
+    public String editAuction(@PathVariable Long id, Model model) {
         Optional<Auction> auctionOptional = auctionService.editAuctionById(id);
         if (auctionOptional.isPresent()) {
             model.addAttribute("auction", auctionOptional.get());
@@ -109,14 +109,14 @@ public class AdminController {
     }
 
     @GetMapping("/admin/product/delete/{id}")
-    public String deleteProduct(@PathVariable long id) {
+    public String deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);
         return "redirect:/admin/products";
     }
 
     @GetMapping("/admin/product/update/{id}")
-    public String editProduct(@PathVariable long id, Model model) {
-        Product product = productService.editProductById(id).get();
+    public String editProduct(@PathVariable Long id, Model model) {
+        Product product = productService.getProductById(id).get();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductId(product.getProductId());
         productDTO.setAuthorName(product.getAuthorName());

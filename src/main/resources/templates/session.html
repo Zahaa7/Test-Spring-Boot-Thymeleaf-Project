@@ -28,10 +28,10 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/}" href="#">home</a>
+                    <a class="nav-link" th:href="@{/}" href="#">Acasă</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                    <a class="nav-link" th:href="@{/session}" href="#">Licitații</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
@@ -53,12 +53,12 @@
 <div class="container" style="margin-top: 30px">
     <div class="row">
         <div class="col-sm-3">
-            <h4>Categories</h4>
+            <h4>Auctions</h4>
             <ul class="list-group">
-                <a th:href="@{/shop}"><li class="list-group-item">All Products</li></a>
-                <a href="" th:each="category, iStat : ${categories}"
-                   th:href="@{/shop/category/{id}(id=${category.id})}"><li
-                               class="list-group-item" th:text="${category.name}"></li></a>
+                <a th:href="@{/session}"><li class="list-group-item">All Products</li></a>
+                <a href="" th:each="auction, iStat : ${auctions}"
+                   th:href="@{/session/auction/{id}(id=${auction.auctionId})}"><li
+                               class="list-group-item" th:text="${auction.auctionName}"></li></a>
 
             </ul>
         </div>
@@ -66,14 +66,14 @@
             <div class="card" style="margin-top: 20px" th:each="product : ${products}">
                 <div class="row no-gutters">
                     <div class="col-sm-5 d-flex justify-content-center">
-                        <img class="" height="150px" width="150px" th:src="@{${'/productImages/' + product.imageName}}" th:alt="${product.name}">
+                        <img class="" height="250px" width="250px" th:src="@{${'/productImages/' + product.productImageURL}}" th:alt="${product.title}">
                     </div>
                     <div class="col-sm-7 d-flex justify-content-center">
                         <div class="card-body">
-                            <h5 class="card-title" th:text="${product.name}"></h5>
-                            <h4>₹ <span th:text="${product.price}"></span></h4>
+                            <h5 class="card-title" th:text="${product.title}"></h5>
+                            <h4>$ <span th:text="${product.basePrice}"></span></h4>
                             <p th:text="${product.description}" >Suresh Dasari is a founder and technical lead developer in tutlane.</p>
-                            <a href="#" th:href="@{/shop/viewproduct/{id}(id=${product.id})}" class="btn btn-primary">View Product</a>
+                            <a href="#" th:href="@{/session/viewproduct/{id}(id=${product.productId})}" class="btn btn-primary">View Product</a>
                         </div>
                     </div>
                 </div>

@@ -22,15 +22,15 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public void deleteProductById(long id) {
+    public void deleteProductById(Long id) {
         productRepository.deleteById(id);
     }
 
-    public Optional<Product> editProductById(long id) {
+    public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }
 
-    public List<Product> getAllProductsByAuctionId(int id) {
-        return productRepository.findAllByAuction(id);
+    public List<Product> getAllProductsByAuctionId(Long id) {
+        return productRepository.findAllProductsByAuctionId(id);
     }
 }

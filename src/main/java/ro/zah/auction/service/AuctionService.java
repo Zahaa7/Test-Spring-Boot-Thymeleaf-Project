@@ -22,12 +22,11 @@ public class AuctionService {
         auctionRepository.save(auction);
     }
 
-    public void deleteAuctionById(long id) {
+    public void deleteAuctionById(Long id) {
         auctionRepository.deleteById(id);
     }
 
-    public Optional<Auction> editAuctionById(long id) {
+    public Optional<Auction> editAuctionById(Long id) {
         return auctionRepository.findById(id);
     }
-
 }

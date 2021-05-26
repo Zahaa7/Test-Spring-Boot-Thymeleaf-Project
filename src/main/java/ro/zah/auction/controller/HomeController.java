@@ -36,4 +36,10 @@ public class HomeController {
         return "session";
     }
 
+    @GetMapping("/session/viewproduct/{id}")
+    public String viewProduct(@PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.getProductById(id).get());
+        return "viewProduct";
+    }
+
 }
